@@ -47,4 +47,17 @@ export default class httpUtil {
       }
     });
   }
+
+  static download(url, params) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        let headers = {responseType: "arraybuffer"};
+        let res = await axios.post(url, params, headers);
+        resolve(res);
+      } catch (error) {
+        let errorMsg = `请求报错路径：${url} \n 请求错误信息: ${error}`;
+        reject(error);
+      }
+    });
+  }
 }

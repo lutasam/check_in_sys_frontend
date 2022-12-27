@@ -16,7 +16,6 @@ Vue.use(ElementUI, {
   size: 'small'
 })
 
-
 Vue.component(VeLine.name, VeLine)
 Vue.component(VeBar.name, VeBar)
 Vue.component(VeHistogram.name, VeHistogram)

@@ -12,6 +12,7 @@
     "core-js": "^3.6.5",
     "echarts": "^4.8.0",
     "element-ui": "^2.13.2",
+    "js-file-download": "^0.4.12",
     "mavon-editor": "2.6.17",
     "querystring": "^0.2.0",
     "v-charts": "^1.19.0",

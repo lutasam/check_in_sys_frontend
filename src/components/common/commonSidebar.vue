@@ -67,50 +67,70 @@ export default {
       collapse: false,
       items: [
         {
-          icon: "el-icon-location-outline",
+          icon: "el-icon-s-home",
           index: "dashboard",
           title: "系统首页",
         },
         {
-          icon: "el-icon-location-outline",
-          index: "commodity",
-          title: "商品管理",
+          icon: "el-icon-zoom-out",
+          index: "record_manage",
+          title: "打卡管理",
         },
         {
-          icon: "el-icon-notebook-2",
-          index: "table",
-          title: "基础表格",
+          icon: "el-icon-help",
+          index: "userinfo",
+          title: "个人信息管理",
         },
         {
-          icon: "el-icon-reading",
-          index: "form",
-          title: "表单相关",
-          subs: [
-            {
-              index: "form",
-              title: "基本表单",
-            },
-            {
-              index: "form-detail",
-              title: "表单详情",
-            },
-          ],
+          icon: "el-icon-user",
+          index: "user_manage",
+          title: "用户管理",
         },
         {
-          icon: "el-icon-tickets",
-          index: "markdown",
-          title: "markdown编辑器",
+          icon: "el-icon-s-check",
+          index: "department",
+          title: "权限管理",
         },
         {
-          icon: "el-icon-upload",
-          index: "upload",
-          title: "文件上传",
+          icon: "el-icon-s-order",
+          index: "notice",
+          title: "通知发布",
         },
-        {
-          icon: "el-icon-pie-chart",
-          index: "charts",
-          title: "vchart图表",
-        },
+        // {
+        //   icon: "el-icon-notebook-2",
+        //   index: "table",
+        //   title: "基础表格",
+        // },
+        // {
+        //   icon: "el-icon-reading",
+        //   index: "form",
+        //   title: "表单相关",
+        //   subs: [
+        //     {
+        //       index: "form",
+        //       title: "基本表单",
+        //     },
+        //     {
+        //       index: "form-detail",
+        //       title: "表单详情",
+        //     },
+        //   ],
+        // },
+        // {
+        //   icon: "el-icon-tickets",
+        //   index: "markdown",
+        //   title: "markdown编辑器",
+        // },
+        // {
+        //   icon: "el-icon-upload",
+        //   index: "upload",
+        //   title: "文件上传",
+        // },
+        // {
+        //   icon: "el-icon-pie-chart",
+        //   index: "charts",
+        //   title: "vchart图表",
+        // },
       ],
     };
   },

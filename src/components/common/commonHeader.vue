@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <div class="logo">vue-admin</div>
+    <div class="logo">健康打卡管理系统</div>
     <div class="collapse-btn" @click="handleCollapseChange">
       <i v-if="!collapse" class="el-icon-s-fold"></i>
       <i v-else class="el-icon-s-unfold"></i>
@@ -13,18 +13,18 @@
           </el-tooltip>
         </div>
         <div class="user-avator">
-          <img src="../../assets/images/logo.png" />
+          <img v-bind:src="this.avatar" />
         </div>
         <el-dropdown class="user-name" trigger="click" @command="handleCommand">
           <span class="el-dropdown-link">
-            Lutasam
+            {{ this.name }}
             <i class="el-icon-caret-bottom"></i>
           </span>
           <el-dropdown-menu slot="dropdown">
             <a href="https://github.com/lutasam/AdminTemplate" target="_blank">
               <el-dropdown-item>项目仓库</el-dropdown-item>
             </a>
-            <el-dropdown-item divided command="logout">管理个人信息</el-dropdown-item>
+            <el-dropdown-item divided command="userinfo">管理个人信息</el-dropdown-item>
             <el-dropdown-item divided command="logout">退出登录</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
@@ -35,13 +35,19 @@
 
 <script>
 import bus from "../../service/bus";
+import {takeUserInfo} from "@/api/user";
 export default {
   name: "commonHeader",
   data() {
     return {
       collapse: false,
       fullScreen: false,
+      name: "",
+      avatar: "",
     };
+  },
+  created() {
+    this.loadUserInfo();
   },
   methods: {
     // 全屏
@@ -70,9 +76,11 @@ export default {
     },
 
     // 下拉菜单选择
-    handleCommand(commond) {
-      if (commond === "logout") {
+    handleCommand(command) {
+      if (command === "logout") {
         this.$router.push("/login");
+      } else if (command === "userinfo") {
+        this.$router.push("/userinfo");
       }
     },
 
@@ -81,6 +89,18 @@ export default {
       this.collapse = !this.collapse;
       bus.$emit("collapse", this.collapse);
     },
+
+    loadUserInfo() {
+      let params = {};
+      takeUserInfo(params).then((res) => {
+        if (res.code === 200) {
+          this.name = res.data.user.name;
+          this.avatar = res.data.user.avatar;
+        } else {
+          this.$message.error(res.msg);
+        }
+      });
+    }
   },
 };
 </script>
